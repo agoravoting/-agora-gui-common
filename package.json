@@ -1,6 +1,6 @@
 {
   "name": "common-ui",
-  "version" : "10.5.2",
+  "version" : "10.5.x",
   "license": "AGPL-3.0-only",
   "author": {
     "name": "Sequent Tech Inc and others",

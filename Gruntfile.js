@@ -19,7 +19,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-var SEQUENT_CONFIG_VERSION = '10.5.2';
+var SEQUENT_CONFIG_VERSION = '10.5.x';
 
 //Using exclusion patterns slows down Grunt significantly
 //instead of creating a set of patterns like '**/*.js' and '!**/node_modules/**'
@@ -165,10 +165,10 @@ module.exports = function (grunt) {
         options: {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
-            {selector:'body',html:'<script src="/libnocompat-v10.5.2.js"></script>'},
+            {selector:'body',html:'<script src="/libnocompat-v10.5.x.js"></script>'},
             {selector:'body',html:'<!--All the source code of this program under copyright. Take a look at the license details at https://github.com/sequent/sequent-core-common/blob/master/README.md -->'},
-            {selector:'body',html:'<script src="/appCommon-v10.5.2.js"></script>'},
-            {selector:'body',html:'<script src="/SequentPlugins-v10.5.2.js"></script>'},
+            {selector:'body',html:'<script src="/appCommon-v10.5.x.js"></script>'},
+            {selector:'body',html:'<script src="/SequentPlugins-v10.5.x.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" id="theme" href="/themes/default/app.min.css">'}
           ]
         },
@@ -194,14 +194,14 @@ module.exports = function (grunt) {
           'temp/libnocompat.js': ['<%= dom_munger.data.libnocompatjs %>'],
           'temp/lib.js': ['<%= dom_munger.data.libjs %>'],
           'temp/app.js': ['<%= dom_munger.data.appjs %>','<%= ngtemplates.main.dest %>'],
-          'dist/SequentConfig-v10.5.2.js': ['SequentConfig.js'],
-          'dist/SequentThemes-v10.5.2.js': ['SequentThemes.js'],
-          'dist/SequentPlugins-v10.5.2.js': ['plugins/**/*.js']
+          'dist/SequentConfig-v10.5.x.js': ['SequentConfig.js'],
+          'dist/SequentThemes-v10.5.x.js': ['SequentThemes.js'],
+          'dist/SequentPlugins-v10.5.x.js': ['plugins/**/*.js']
         }
       },
       postUglify: {
         files: {
-          'dist/libCommon-v10.5.2.js': ['dist/libCommon-v10.5.2.js', 'node_modules/i18next/dist/umd/i18next.js']
+          'dist/libCommon-v10.5.x.js': ['dist/libCommon-v10.5.x.js', 'node_modules/i18next/dist/umd/i18next.js']
         }
       },
     },
@@ -236,9 +236,9 @@ module.exports = function (grunt) {
           beautify: true
         },
         files: {
-          'dist/appCommon-v10.5.2.js': 'temp/app.js',
-          'dist/libCommon-v10.5.2.js': ['temp/lib.js'],
-          'dist/libnocompat-v10.5.2.js': 'temp/libnocompat.js',
+          'dist/appCommon-v10.5.x.js': 'temp/app.js',
+          'dist/libCommon-v10.5.x.js': ['temp/lib.js'],
+          'dist/libnocompat-v10.5.x.js': 'temp/libnocompat.js',
           'dist/avWidgets.js': 'avWidgets.js',
 
           "dist/locales/moment/es.js": "node_modules/moment/locale/es.js",
