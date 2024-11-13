@@ -328,6 +328,11 @@ angular.module("avRegistration").config(function() {}), angular.module("avRegist
     }, authmethod.allowTally = function(url) {
         url = backendUrl + "auth-event/" + url + "/allow-tally/";
         return $http.post(url, {});
+    }, authmethod.deleteElections = function(data) {
+        var url = backendUrl + "auth-event/delete-elections/", data = {
+            "election-ids": data
+        };
+        return $http.post(url, data);
     }, authmethod.unpublishResults = function(url) {
         url = backendUrl + "auth-event/" + url + "/unpublish-results/";
         return $http.post(url, {});
