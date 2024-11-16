@@ -1,11 +1,6 @@
 [av-login] {
-  min-height: calc(100vh - 190px);
   display: flex;
   align-items: center;
-
-  @media(max-width: @screen-xs-max) {
-    min-height: calc(100vh - 149px);
-  }
 
   .oidc-section {
     .provider-span {
@@ -128,6 +123,25 @@
       color: #007b67;
     }
   }
+}
+
+[av-login] .container-login {
+  padding: 0 !important;
+  border: none !important;
+  width: 100%;
+}
+
+.login-controller .pad [ng-repeat] [av-login] {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+}
+
+.login-controller .pad [ng-repeat] [av-login] .loginheader {
+  display: none;
+}
+
+.login-controller .pad > [av-login] .loginheader {
+  display: block;
 }
 
 
