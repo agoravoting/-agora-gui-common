@@ -76,7 +76,7 @@
     "postcss": "^8.4.31",
     "rng-js": "~1.0.1",
     "underscore": "1.12.1",
-    "ws": "7.4.6",
+    "ws": "7.5.10",
     "yarn": "^1.22.19"
   },
   "dependencies": {
