@@ -14,7 +14,7 @@
       selected-alt-method="{{selectedAltMethod}}"
     >
     </div>
-    <div ng-repeat="alt_method in alt_methods">
+    <div ng-repeat="alt_method in alt_methods" ng-if="!withAltMethod">
       <div
         av-login
         event-id="{{event_id}}"

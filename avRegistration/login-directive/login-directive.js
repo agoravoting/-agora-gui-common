@@ -881,6 +881,7 @@ angular.module('avRegistration')
               (authevent['census'] === 'open') &&
               (autheventid !== adminId || ConfigService.allowAdminRegistration)
             );
+
             if (!scope.isCensusQuery && !scope.withCode && !scope.isOtl) {
               scope.login_fields = Authmethod.getLoginFields(authevent);
             } else if (scope.withCode) {
@@ -1028,7 +1029,7 @@ angular.module('avRegistration')
             // if all fields all filled in and it's not OpenID Connect do
             // auto-login
             if (
-              !scope.isOpenId &&
+              !scope.isOpenId && (authevent.auth_method === 'openid-connect') &&
               !scope.isOtl &&
               !scope.isCensusQuery &&
               !scope.withCode &&
