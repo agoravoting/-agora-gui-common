@@ -40,7 +40,7 @@ angular.module('avRegistration')
                   return auth_method.auth_method_name !== 'smart-link';
                 })
                 .map(function (auth_method) {
-                  return auth_method.auth_method_name;
+                  return auth_method.id;
                 });
             }
           );
