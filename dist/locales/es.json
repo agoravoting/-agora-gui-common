@@ -19,6 +19,7 @@
 		"name": "Sequent Tech"
 	},
 	"avRegistration": {
+		"other": "o",
 		"languageName": "Español",
 		"censusQueryHeader": "Consulta si formas parte del censo",
 		"checkCensusButton": "Consulta el censo",

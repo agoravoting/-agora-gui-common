@@ -5999,7 +5999,7 @@ angular.module('common-ui').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('avRegistration/login-controller/login-controller.html',
-    "<div class=\"col-xs-12 login-controller\"><div class=\"pad\"><div av-login event-id=\"{{event_id}}\" code=\"{{code}}\" email=\"{{email}}\" with-code=\"{{withCode}}\" username=\"{{username}}\" is-otl=\"{{isOtl}}\" is-open-id=\"{{isOpenId}}\" otl-secret=\"{{otlSecret}}\" with-alt-method=\"{{withAltMethod}}\" selected-alt-method=\"{{selectedAltMethod}}\"></div><div ng-repeat=\"alt_method in alt_methods\" ng-if=\"!withAltMethod\"><div av-login event-id=\"{{event_id}}\" code=\"{{code}}\" email=\"{{email}}\" with-code=\"{{withCode}}\" username=\"{{username}}\" is-otl=\"{{isOtl}}\" is-open-id=\"{{isOpenId}}\" otl-secret=\"{{otlSecret}}\" with-alt-method=\"true\" selected-alt-method=\"{{alt_method}}\"></div></div></div></div>"
+    "<div class=\"col-xs-12 login-controller\"><div class=\"pad\"><div av-login event-id=\"{{event_id}}\" code=\"{{code}}\" email=\"{{email}}\" with-code=\"{{withCode}}\" username=\"{{username}}\" is-otl=\"{{isOtl}}\" is-open-id=\"{{isOpenId}}\" otl-secret=\"{{otlSecret}}\" with-alt-method=\"{{withAltMethod}}\" selected-alt-method=\"{{selectedAltMethod}}\"></div><div ng-repeat=\"alt_method in alt_methods\" ng-if=\"!withAltMethod\"><div class=\"separator\" ng-i18next=\"avRegistration.other\"></div><div av-login event-id=\"{{event_id}}\" code=\"{{code}}\" email=\"{{email}}\" with-code=\"{{withCode}}\" username=\"{{username}}\" is-otl=\"{{isOtl}}\" is-open-id=\"{{isOpenId}}\" otl-secret=\"{{otlSecret}}\" with-alt-method=\"true\" selected-alt-method=\"{{alt_method}}\"></div></div></div></div>"
   );
 
 

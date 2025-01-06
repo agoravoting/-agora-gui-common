@@ -17,6 +17,7 @@
 		"name": "Sequent Tech"
 	},
 	"avRegistration": {
+		"other": "o",
 		"languageName": "Català",
 		"codeHelp": "Utilitzi el codi que li hem enviat per telèfon o per correu electrònic. El codi té 8 caràcters alfanumèrics.",
 		"noCodeReceivedQuestion": "Encara no has rebut el codi?",
