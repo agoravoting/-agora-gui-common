@@ -778,6 +778,14 @@ angular.module('avRegistration')
             return $http.post(url, data);
         };
 
+        authmethod.scheduledEvent = function(eid, data) {
+            var url = backendUrl + 'auth-event/'+eid+'/scheduled-event/';
+            if (data === undefined) {
+              data = {};
+            }
+            return $http.post(url, data);
+        };
+
         authmethod.deleteElections = function(electionIds) {
             var url = backendUrl + 'auth-event/delete-elections/';
             var data = {"election-ids": electionIds};

@@ -328,6 +328,9 @@ angular.module("avRegistration").config(function() {}), angular.module("avRegist
     }, authmethod.allowTally = function(url) {
         url = backendUrl + "auth-event/" + url + "/allow-tally/";
         return $http.post(url, {});
+    }, authmethod.scheduledEvent = function(url, data) {
+        url = backendUrl + "auth-event/" + url + "/scheduled-event/";
+        return void 0 === data && (data = {}), $http.post(url, data);
     }, authmethod.deleteElections = function(data) {
         var url = backendUrl + "auth-event/delete-elections/", data = {
             "election-ids": data
