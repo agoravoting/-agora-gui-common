@@ -500,105 +500,8 @@ angular.module('avRegistration')
         authmethod.editChildrenParent = function(data, eid) {
             return $http.post(backendUrl + 'auth-event/'+eid+'/edit-children-parent/', data);
         };
-<<<<<<< HEAD
 
         authmethod.getPerm = function(perm, object_type, object_id) {
-=======
-        return $http.post(url, data);
-    }, authmethod.changeAuthEvent = function(eid, url, data) {
-        url = backendUrl + "auth-event/" + eid + "/" + url + "/";
-        return void 0 === data && (data = {}), $http.post(url, data);
-    }, authmethod.allowTally = function(url) {
-        url = backendUrl + "auth-event/" + url + "/allow-tally/";
-        return $http.post(url, {});
-    }, authmethod.deleteElections = function(data) {
-        var url = backendUrl + "auth-event/delete-elections/", data = {
-            "election-ids": data
-        };
-        return $http.post(url, data);
-    }, authmethod.unpublishResults = function(url) {
-        url = backendUrl + "auth-event/" + url + "/unpublish-results/";
-        return $http.post(url, {});
-    }, authmethod.archive = function(url) {
-        url = backendUrl + "auth-event/" + url + "/archive/";
-        return $http.post(url, {});
-    }, authmethod.unarchive = function(url) {
-        url = backendUrl + "auth-event/" + url + "/unarchive/";
-        return $http.post(url, {});
-    }, authmethod.setPublicCandidates = function(url, data) {
-        url = backendUrl + "auth-event/" + url + "/set-public-candidates/", data = {
-            publicCandidates: data
-        };
-        return $http.post(url, data);
-    }, authmethod.setInsideOtlPeriod = function(url, data) {
-        url = backendUrl + "auth-event/" + url + "/set-authenticate-otl-period/", data = {
-            set_authenticate_otl_period: data
-        };
-        return $http.post(url, data);
-    }, authmethod.launchTally = function(url, tallyElectionIds, forceTally, data) {
-        url = backendUrl + "auth-event/" + url + "/tally-status/", data = {
-            children_election_ids: tallyElectionIds,
-            force_tally: forceTally,
-            mode: data
-        };
-        return $http.post(url, data);
-    };
-    var lastRefreshMs = 0;
-    return authmethod.refreshAuthToken = function(autheventid) {
-        var deferred = $q.defer(), jnow = Date.now();
-        if (jnow - lastRefreshMs < 1e3) return deferred.reject("ongoing refresh"), deferred.promise;
-        lastRefreshMs = jnow;
-        var postfix = "_authevent_" + autheventid;
-        if ("hidden" === document.visibilityState) return $cookies.get("auth" + postfix) || $state.go("admin.logout"), 
-        deferred.reject("tab not focused"), deferred.promise;
-        var now = Date.now(), sessionStartedAtMs = now;
-        return authmethod.ping(autheventid).then(function(tokens) {
-            var decodedAccessToken = {}, decodedToken = tokens.data["auth-token"];
-            decodedToken && (decodedToken = authmethod.decodeToken(decodedToken), decodedAccessToken.expires = new Date(now + 1e3 * decodedToken.expiry_secs_diffs), 
-            $cookies.put("auth" + postfix, tokens.data["auth-token"], decodedAccessToken), $cookies.put("isAdmin" + postfix, $cookies.get("isAdmin" + postfix), decodedAccessToken), 
-            $cookies.put("userid" + postfix, $cookies.get("userid" + postfix), decodedAccessToken), 
-            $cookies.put("userid" + postfix, $cookies.get("userid" + postfix), decodedAccessToken), 
-            $cookies.put("user" + postfix, $cookies.get("user" + postfix), decodedAccessToken), 
-            authmethod.setAuth($cookies.get("auth" + postfix), $cookies.get("isAdmin" + postfix), autheventid)), 
-            angular.isDefined(tokens.data["vote-permission-token"]) ? (decodedAccessToken = tokens.data["vote-permission-token"], 
-            decodedAccessToken = authmethod.decodeToken(decodedAccessToken), $window.sessionStorage.setItem("vote_permission_tokens", JSON.stringify([ {
-                electionId: autheventid,
-                token: tokens.data["vote-permission-token"],
-                isFirst: !0,
-                sessionStartedAtMs: sessionStartedAtMs,
-                sessionEndsAtMs: sessionStartedAtMs + 1e3 * decodedAccessToken.expiry_secs_diff
-            } ])), $window.sessionStorage.setItem("show-pdf", !!tokens.data["show-pdf"])) : angular.isDefined(tokens.data["vote-children-info"]) && (tokens = _.chain(tokens.data["vote-children-info"]).map(function(child, index) {
-                var decodedAccessToken = child["vote-permission-token"], decodedAccessToken = decodedAccessToken && authmethod.decodeToken(decodedAccessToken) || null;
-                return {
-                    electionId: child["auth-event-id"],
-                    token: child["vote-permission-token"] || null,
-                    skipped: !1,
-                    voted: !1,
-                    numSuccessfulLoginsAllowed: child["num-successful-logins-allowed"],
-                    numSuccessfulLogins: child["num-successful-logins"],
-                    isFirst: 0 === index,
-                    sessionStartedAtMs: sessionStartedAtMs,
-                    sessionEndsAtMs: sessionStartedAtMs + 1e3 * (decodedAccessToken && decodedAccessToken.expiry_secs_diff || null)
-                };
-            }).value(), $window.sessionStorage.setItem("vote_permission_tokens", JSON.stringify(tokens)));
-        });
-    }, authmethod.getUserDraft = function() {
-        if (authmethod.isLoggedIn()) return $http.get(backendUrl + "user/draft/", {});
-        var data = {
-            then: function(onSuccess, onError) {
-                return setTimeout(function() {
-                    onError({
-                        data: {
-                            message: "not-logged-in"
-                        }
-                    });
-                }, 0), data;
-            }
-        };
-        return data;
-    }, authmethod.uploadUserDraft = function(draft_data) {
-        if (!authmethod.isLoggedIn()) {
->>>>>>> 10.5.x
             var data = {
                 permission: perm,
                 object_type: object_type,
@@ -894,6 +797,12 @@ angular.module('avRegistration')
         authmethod.allowTally = function(eid) {
             var url = backendUrl + 'auth-event/'+eid+'/allow-tally/';
             var data = {};
+            return $http.post(url, data);
+        };
+
+        authmethod.deleteElections = function(electionIds) {
+            var url = backendUrl + 'auth-event/delete-elections/';
+            var data = {"election-ids": electionIds};
             return $http.post(url, data);
         };
 
