@@ -32,39 +32,6 @@
           >
         </div>
     </div>
-    
-    <!-- Shows the alternative auth method tabs in case there's any -->
-    <div class="col-sm-12 alternative-auth-methods-tabs" ng-if="alternative_auth_methods">
-      <ul class="nav nav-tabs" ng-if="method !== 'smart-link'">
-        <li 
-          class="default-auth-method"
-          ng-class="{'active': current_alt_auth_method_id == null}"
-        >
-          <a
-            ng-click="setCurrentAltAuthMethod(null)"
-          >
-            <i class="fa fa-user"></i>
-            <span ng-i18next="avRegistration.defaultAuthMethod"></span>
-          </a>
-        </li>
-        <!-- we disable click for smart-link unless it comes from a smart-link,
-          because it doesn't work -->
-        <li
-          ng-repeat="alt_auth_method in alternative_auth_methods"
-          ng-class="{'active': current_alt_auth_method_id == alt_auth_method.id, 'disabled': selectedAltMethod !== 'smart-link' && alt_auth_method.auth_method_name === 'smart-link'}"
-        >
-          <a ng-click="setCurrentAltAuthMethod(alt_auth_method, true)">
-            <i
-              ng-if="alt_auth_method.icon"
-              class="{{alt_auth_method.icon}}"
-              ></i>
-            <span>
-              {{getAltAuthMethodName(alt_auth_method)}}
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
 
     <div class="col-sm-12" ng-if="method !== 'openid-connect'">
         <form name="form" id="loginForm" role="form" class="form-horizontal">
@@ -221,13 +188,12 @@
             ng-click="openidConnectAuth(provider)"
             alt="{{provider.public_info.description}}"
             tabindex="0"
-            class="btn btn-block btn-lg btn-success-action provider-btn"
+            class="btn btn-block btn-lg provider-btn"
             ng-class="{[provider.public_info.id]: true}"
           >
             <img
               ng-if="!!provider.public_info.icon"
               alt="{{provider.public_info.description}}"
-              class="logo-img"
               ng-src="{{provider.public_info.icon}}"
             />
             {{provider.public_info.title}}

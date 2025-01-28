@@ -20,8 +20,32 @@ angular.module('avRegistration')
     'LoginController',
     function(
       $scope,
-      $stateParams
+      $stateParams,
+      Authmethod
     ) {
+      $scope.alt_methods = [];
+      if (!$stateParams.altmethod) {
+        Authmethod
+          .viewEvent($stateParams.id)
+          .then(
+            function onSuccess(response) {
+              if (response.data.status !== "ok") {
+                return;
+              }
+              $scope.alt_methods = response
+                .data
+                .events
+                .alternative_auth_methods
+                .filter(function (auth_method) {
+                  return auth_method.auth_method_name !== 'smart-link';
+                })
+                .map(function (auth_method) {
+                  return auth_method.id;
+                });
+            }
+          );
+      }
+
       $scope.event_id = $stateParams.id;
       $scope.code = $stateParams.code;
       $scope.email = $stateParams.email;

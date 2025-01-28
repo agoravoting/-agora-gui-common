@@ -23,3 +23,43 @@
         max-width: 562px;
     }
 }
+
+.container-login {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.login-controller .pad {
+    margin: 80px;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    background: white;
+    padding: 30px 50px;
+    padding-bottom: 0;
+
+    .separator {
+        display: block;
+        width: 50px;
+        height: 25px;
+        text-align: center;
+        background: white;
+        margin: 0 auto;
+        z-index: 10;
+        margin-bottom: -45px;
+        clear: both;
+        position: relative;
+    }
+}
+
+@media (max-width: @screen-xs-max) {
+    .login-controller .pad {
+        margin: 15px 0;
+        padding: 15px;
+    }
+}
+
+@media (max-width: @screen-sm-max) {
+    .login-controller .pad {
+        margin: 20px 0;
+        padding: 30px;
+    }
+}

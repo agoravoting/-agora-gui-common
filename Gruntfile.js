@@ -223,6 +223,7 @@ module.exports = function (grunt) {
       main: {
         files: {
         'temp/app.js':['temp/app.js'],
+        'dist/appCommon-v10.5.2.js': ['temp/app.js'],
         'temp/lib.js': ['temp/lib.js'],
         'temp/libnocompat.js': ['temp/libnocompat.js']
         }
@@ -233,10 +234,10 @@ module.exports = function (grunt) {
         options:{
           mangle: false,
           compress: {},
-          beautify: true
+          beautify: true,
         },
         files: {
-          'dist/appCommon-v10.5.2.js': 'temp/app.js',
+          //'dist/appCommon-v10.5.2.js': 'temp/app.js',
           'dist/libCommon-v10.5.2.js': ['temp/lib.js'],
           'dist/libnocompat-v10.5.2.js': 'temp/libnocompat.js',
           'dist/avWidgets.js': 'avWidgets.js',

@@ -20,6 +20,7 @@
     "name": "Sequent Tech"
   },
   "avRegistration": {
+    "other": "or",
     "openidLoginDescription": "Use an identity provider to authenticate:",
     "defaultAuthMethod": "Default",
     "languageName": "English",
